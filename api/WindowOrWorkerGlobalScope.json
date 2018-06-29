@@ -276,7 +276,7 @@
               "version_added": "4"
             },
             "opera_android": {
-              "version_added": "6"
+              "version_added": "10.1"
             },
             "safari": {
               "version_added": "4"
@@ -336,7 +336,7 @@
               "version_added": "4"
             },
             "opera_android": {
-              "version_added": "6"
+              "version_added": "10.1"
             },
             "safari": {
               "version_added": "4"
@@ -1050,7 +1050,7 @@
               "version_added": "4"
             },
             "opera_android": {
-              "version_added": "6"
+              "version_added": "10.1"
             },
             "safari": {
               "version_added": "1"
@@ -1153,7 +1153,7 @@
               "version_added": "4"
             },
             "opera_android": {
-              "version_added": "6"
+              "version_added": "10.1"
             },
             "safari": {
               "version_added": "1"

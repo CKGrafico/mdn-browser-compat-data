@@ -91,7 +91,7 @@
               "notes": "Secure context not required"
             },
             {
-              "version_added": "10",
+              "version_added": "10.1",
               "version_removed": "15",
               "notes": "Secure context not required"
             }
@@ -158,7 +158,7 @@
                 "version_added": "16"
               },
               {
-                "version_added": "10",
+                "version_added": "10.1",
                 "version_removed": "15"
               }
             ],
@@ -218,7 +218,7 @@
                 "version_added": "16"
               },
               {
-                "version_added": "10",
+                "version_added": "10.1",
                 "version_removed": "15"
               }
             ],
@@ -278,7 +278,7 @@
                 "version_added": "16"
               },
               {
-                "version_added": "10",
+                "version_added": "10.1",
                 "version_removed": "15"
               }
             ],
