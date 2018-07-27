@@ -29,7 +29,8 @@ function load(...files) {
         let hasSchemaErrors = false;
         let hasVersionErrors = false;
         let hasBrowserErrors = false;
-        console.log(file.replace(path.resolve(__dirname, '..') + path.sep, ''));
+        const relativeFilePath = path.relative(process.cwd(), file);
+        console.log(relativeFilePath);
         if (file.indexOf('browsers' + path.sep) !== -1) {
           hasSchemaErrors = testSchema(file, './../schemas/browsers.schema.json');
         } else {
@@ -40,8 +41,7 @@ function load(...files) {
         }
         if (hasStyleErrors || hasSchemaErrors || hasVersionErrors || hasBrowserErrors) {
           hasErrors = true;
-          const fileName = file.replace(path.resolve(__dirname, '..') + path.sep, '');
-          filesWithErrors.set(fileName, file);
+          filesWithErrors.set(relativeFilePath, file);
         }
       }
 
