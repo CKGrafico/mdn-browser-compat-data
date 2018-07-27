@@ -13,22 +13,23 @@ let hasErrors = false;
  * @param {string[]} files
  */
 function load(...files) {
-  files.forEach(file => {
+  for (let file of files) {
     if (file.indexOf(__dirname) !== 0) {
       file = path.resolve(__dirname, '..', file);
     }
 
     if (!fs.existsSync(file)) {
-      return; // Ignore non-existent files
+      continue; // Ignore non-existent files
     }
 
     if (fs.statSync(file).isFile()) {
       if (path.extname(file) === '.json') {
-        let hasSyntaxErrors = false,
-          hasSchemaErrors = false,
-          hasStyleErrors = false,
-          hasVersionErrors = false;
-        console.log(file.replace(path.resolve(__dirname, '..') + path.sep, ''));
+        let hasSyntaxErrors = false
+        let hasStyleErrors = false;
+        let hasSchemaErrors = false;
+        let hasVersionErrors = false;
+        const relativeFilePath = path.relative(process.cwd(), file);
+        console.log(relativeFilePath);
         try {
           if (file.indexOf('browsers' + path.sep) !== -1) {
             hasSchemaErrors = testSchema(file, './../schemas/browsers.schema.json');
@@ -43,12 +44,11 @@ function load(...files) {
         }
         if (hasSyntaxErrors || hasSchemaErrors || hasStyleErrors || hasVersionErrors) {
           hasErrors = true;
-          const fileName = file.replace(path.resolve(__dirname, '..') + path.sep, '');
-          filesWithErrors.set(fileName, file);
+          filesWithErrors.set(relativeFilePath, file);
         }
       }
 
-      return;
+      continue;
     }
 
     const subFiles = fs.readdirSync(file).map((subfile) => {
@@ -56,7 +56,7 @@ function load(...files) {
     });
 
     load(...subFiles);
-  });
+  }
 }
 
 if (process.argv[2]) {
